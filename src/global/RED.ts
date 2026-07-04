@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
-import { TBDB } from "./TMDB";
+import { TMDB } from "./TMDB";
 
 export const RED = configureStore({
     reducer: {
-        [TBDB.reducerPath]: TBDB.reducer,
+        [TMDB.reducerPath]: TMDB.reducer,
     },
-    middleware: (gDM) => gDM().concat(TBDB.middleware),
+    middleware: (gDM) => gDM().concat(TMDB.middleware),
 });
 
 setupListeners(RED.dispatch);

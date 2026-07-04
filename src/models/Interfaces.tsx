@@ -1,3 +1,12 @@
+export interface MC {
+    id: number,
+    title: string,
+    posterPath: string,
+    voteAverage: number,
+    releaseDate: string,
+    type: "movie" | "tv"
+};
+
 export interface IMov {
     adult: boolean,
     backdrop_path: string,
@@ -56,6 +65,43 @@ export interface IMulti {
     total_results: number,
     results: (IMov | ITV)[]
 };
+
+export interface ITrendAll {
+    page: number,
+    total_pages: number,
+    total_results: number,
+    results: (IMov | ITV)[]
+};
+
+export interface ITVDetail {
+    id: number,
+    name: string,
+    overview: string,
+    popularity: number,
+    backdrop_path: string,
+    poster_path: string,
+    tagline: string,
+    vote_average: number,
+    first_air_date: string,
+    number_of_seasons: number,
+    number_of_episodes: number,
+    genres: [{
+        id: number,
+        name: string
+    }],
+    homepage: string,
+    credits: {
+        cast: [{
+            id: number,
+            name: string,
+            gender: number,
+            character: string,
+            popularity: number,
+            profile_path: string,
+        }]
+    }
+};
+
 
 
 
