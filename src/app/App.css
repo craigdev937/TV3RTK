@@ -1,0 +1,44 @@
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: oklch(100% 0.00011 271.152);
+    --text: oklch(92.209% 0.01492 286.007);
+    --text-muted: oklch(63.653% 0.04176 285.137);
+    --text-dim: oklch(45.761% 0.03403 284.964);
+    --bg: oklch(14.734% 0.01075 284.992);
+    --bg-card: oklch(18.614% 0.01624 284.705);
+    --bg-elevated: oklch(22.473% 0.02712 284.003);
+    --border: oklch(24.287% 0.03039 283.906);
+
+    --snippet: oklch(62.31% 0.1881 259.83);
+    --prompt: oklch(76.858% 0.1646 70.075);
+    --command: oklch(71.485% 0.12578 215.256);
+    --note: oklch(72.276% 0.19199 149.6);
+    --file: oklch(55.439% 0.04078 257.446);
+    --image: oklch(65.59% 0.21181 354.287);
+    --url: oklch(58.541% 0.20415 277.126);
+
+    --gradient: linear-gradient(
+        135deg, #2563eb, #3b82f6, #60a5fa
+    );
+    --radius: 12px;
+    --radius-sm: 8px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI";
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+
+
