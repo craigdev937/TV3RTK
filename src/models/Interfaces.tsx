@@ -36,7 +36,9 @@ export interface ITrendMov {
 export interface ITV {
     adult: boolean,
     backdrop_path: string,
+    homepage: string,
     id: number,
+    last_air_date: string,
     name: string,
     original_name: string,
     overview: string,
@@ -49,14 +51,35 @@ export interface ITV {
     softcore: boolean,
     vote_average: number,
     vote_count: number,
-    origin_country: string[]
-};
-
-export interface ITrendTV {
-    page: number,
-    total_pages: number,
-    total_results: number,
-    results: ITV[]
+    origin_country: string[],
+    credits: {
+        cast: [{
+            adult: boolean,
+            gender: number,
+            id: number,
+            known_for_department: string,
+            name: string,
+            original_name: string,
+            popularity: number,
+            profile_path: string,
+            character: string,
+            credit_id: string,
+            order: number
+        }],
+        crew: [{
+            adult: boolean,
+            gender: number,
+            id: number,
+            known_for_department: string,
+            name: string,
+            original_name: string,
+            popularity: number,
+            profile_path: string,
+            credit_id: string,
+            department: string,
+            job: string
+        }]
+    }
 };
 
 export interface IMulti {
@@ -73,31 +96,33 @@ export interface ITrendAll {
     results: (IMov | ITV)[]
 };
 
-export interface ITVDetail {
-    id: number,
-    name: string,
-    overview: string,
-    popularity: number,
-    backdrop_path: string,
-    poster_path: string,
-    tagline: string,
-    vote_average: number,
-    first_air_date: string,
-    number_of_seasons: number,
-    number_of_episodes: number,
-    genres: [{
-        id: number,
-        name: string
-    }],
-    homepage: string,
+export interface ITVCast {
     credits: {
         cast: [{
-            id: number,
-            name: string,
+            adult: boolean,
             gender: number,
-            character: string,
+            id: number,
+            known_for_department: string,
+            name: string,
+            original_name: string,
             popularity: number,
             profile_path: string,
+            character: string,
+            credit_id: string,
+            order: number
+        }],
+        crew: [{
+            adult: boolean,
+            gender: number,
+            id: number,
+            known_for_department: string,
+            name: string,
+            original_name: string,
+            popularity: number,
+            profile_path: string,
+            credit_id: string,
+            department: string,
+            job: string
         }]
     }
 };

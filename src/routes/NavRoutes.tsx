@@ -5,6 +5,7 @@ import { NotFound } from "../components/NotFound";
 import { Navbar } from "./Navbar";
 import { Home } from "../pages/home/Home";
 import { TV } from "../pages/tv/TV";
+import { TVDet } from "../containers/tv/TVDet";
 import { Film } from "../pages/film/Film";
 import { Actors } from "../pages/actors/Actors";
 
@@ -21,6 +22,10 @@ const RouteList = createBrowserRouter([
             {
                 path: "/tv",
                 element: <TV />
+            },
+            {
+                path: "/tv/:id",
+                element: <TVDet />
             },
             {
                 path: "/film",
