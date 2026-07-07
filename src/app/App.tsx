@@ -5,6 +5,7 @@ import { NavRoutes } from "../routes/NavRoutes";
 export const App = () => {
     return (
         <React.Fragment>
+            <title>Entertainment</title>
             <NavRoutes />
         </React.Fragment>
     );

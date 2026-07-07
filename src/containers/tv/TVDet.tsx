@@ -3,14 +3,24 @@ import styles from "./TVDet.module.css";
 import { useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
+import { TVideo } from "../video/TVideo";
 const IMG = "https://image.tmdb.org/t/p/w500";
 
 export const TVDet = () => {
+    const [show, setShow] = React.useState(false);
     const { id } = useParams();
     const tvID = id !== undefined ? Number(id) : 0;
     const { error, isLoading, 
         data } = TMDB.useTvdetailQuery(tvID);
     const TV = data!;
+
+    const handleShow = () => {
+        setShow((state) => !state);
+    };
+
+    const handleTVideo = () => {
+        setShow(false)
+    };
 
     if (error) {
         if ("status" in error) {
@@ -36,12 +46,14 @@ export const TVDet = () => {
                             src={`${IMG}/${TV.backdrop_path}`}
                         />
                         <p>{TV.overview}</p>
-                        <h3>Last air date: {TV.last_air_date}</h3>
+                        <h3>Last air date: {TV.last_air_date}</h3>                        
                         <button>
                             <a href={TV.homepage} target="_blank">
                                 Homepage
                             </a>
                         </button>
+                        <button onClick={handleShow}>Open Video</button>
+                        <TVideo show={show} closeTV={handleTVideo} />
                     </section>
 
                     <section className={styles.tv__credits}>
