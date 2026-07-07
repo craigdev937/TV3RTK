@@ -40,20 +40,31 @@ export const TVDet = () => {
             ) : (
                 <main>
                     <section className={styles.tv__card}>
-                        <h1>{TV.original_name}</h1>
-                        <img 
-                            alt={TV.original_name}
-                            src={`${IMG}/${TV.backdrop_path}`}
-                        />
-                        <p>{TV.overview}</p>
-                        <h3>Last air date: {TV.last_air_date}</h3>                        
-                        <button>
-                            <a href={TV.homepage} target="_blank">
-                                Homepage
-                            </a>
-                        </button>
-                        <button onClick={handleShow}>Open Video</button>
-                        <TVideo show={show} closeTV={handleTVideo} />
+                        <aside className={styles.tv__poster}>
+                            <img
+                                alt={TV.original_name}
+                                src={`${IMG}/${TV.poster_path}`}
+                            />
+                        </aside>
+
+                        <aside className={styles.tv__info}>
+                            <h1>{TV.original_name}</h1>
+                            <p className={styles.tv__rating}>
+                                Rating: {TV.vote_average}
+                            </p>
+                            <h3>Overview</h3>
+                            <p>{TV.overview}</p>
+                            <h3>Last air date: {TV.last_air_date}</h3>
+                            <div className={styles.tv__actions}>
+                                <button>
+                                    <a href={TV.homepage} target="_blank">
+                                        Homepage
+                                    </a>
+                                </button>
+                                <button onClick={handleShow}>Trailer</button>
+                            </div>
+                            <TVideo show={show} closeTV={handleTVideo} />
+                        </aside>
                     </section>
 
                     <section className={styles.tv__credits}>

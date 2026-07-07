@@ -1,6 +1,6 @@
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IMulti, ITV } from "../models/Interfaces";
+import { IMulti, ITV, ITVTrailer } from "../models/Interfaces";
 const API = import.meta.env.PUBLIC_KEY;
 const URL = "https://api.themoviedb.org/3";
 
@@ -33,6 +33,14 @@ export const TMDB = createApi({
                     "api_key": `${API}`,
                     "append_to_response": "credits"
                 }
+            }),
+            providesTags: ["TV"]
+        }),
+        tvtrail: builder.query<ITVTrailer, number>({
+            query: (id) => ({
+                url: `/tv/${id}/videos`,
+                method: "GET",
+                params: {"api_key": `${API}`}
             }),
             providesTags: ["TV"]
         }),
