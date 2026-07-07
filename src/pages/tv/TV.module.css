@@ -4,7 +4,10 @@
     margin-inline: auto;
     gap: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(
+        auto-fill, 
+        minmax(220px, 1fr)
+    );
 }
 
 .tv {
@@ -26,54 +29,6 @@
 }
 
 
-
-
-/* .title {
-    background-color: var(--bg-elevated);
-    color: var(--command);
-}
-
-.switch {
-    position: relative;
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
-    width: 10rem;
-    padding: 0.25rem;
-    border: 1px solid var(--command, #888);
-    border-radius: 2rem;
-    background-color: var(--bg-elevated, #eee);
-    cursor: pointer;
-    font: inherit;
-}
-
-.thumb {
-    position: absolute;
-    top: 0.25rem;
-    left: 0.25rem;
-    width: calc(50% - 0.25rem);
-    height: calc(100% - 0.5rem);
-    border-radius: 2rem;
-    background-color: var(--command, #646cff);
-    transition: transform 0.25s ease;
-}
-
-.thumbRight {
-    transform: translateX(100%);
-}
-
-.option,
-.active {
-    position: relative;
-    z-index: 1;
-    padding: 0.25rem 0;
-    text-align: center;
-    transition: color 0.25s ease;
-}
-
-.active {
-    color: var(--bg-elevated, #fff);
-    font-weight: 600;
-} */
 
 
 

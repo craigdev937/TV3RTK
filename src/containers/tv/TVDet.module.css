@@ -1,6 +1,13 @@
+.tv__card {
+    display: grid;
+    place-items: center;
+    max-width: 95%;
+}
+
 .tv__credits {
     margin-top: 1rem;
     margin-inline: auto;
+    max-width: 95%;
     gap: 1rem;
     display: grid;
     grid-template-columns: repeat(
@@ -16,12 +23,50 @@
     place-items: center;
 }
 
+.tv__actor h4 {
+    padding: 10px 0 10px 0;
+    color: var(--bg);
+}
+
 .tv__actor img {
     display: block;
     width: 100%;
     aspect-ratio: .7 / 1;
     object-fit: scale-down;
 }
+
+.tv__prod {
+    margin-top: 1rem;
+    margin-inline: auto;
+    max-width: 95%;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(210px, 1fr)
+    );
+}
+
+.tv__crew {
+    padding: .6rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    place-items: center;
+}
+
+.tv__crew h4 {
+    padding: 10px 0 10px 0;
+    color: var(--bg);
+    align-self: flex-start;
+}
+
+.tv__crew img {
+    display: block;
+    width: 100%;
+    aspect-ratio: .7 / 1;
+    object-fit: scale-down;
+}
+
 
 
 

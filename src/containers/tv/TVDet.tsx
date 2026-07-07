@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./TVDet.module.css";
-import { Link, useParams } from "react-router";
+import { useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
 const IMG = "https://image.tmdb.org/t/p/w500";
@@ -8,10 +8,9 @@ const IMG = "https://image.tmdb.org/t/p/w500";
 export const TVDet = () => {
     const { id } = useParams();
     const tvID = id !== undefined ? Number(id) : 0;
-    const { error, isLoading, data } = TMDB.useTvdetailQuery(tvID);
-    // const { data: TCast } = TMDB.useTvcastQuery(tvID);
+    const { error, isLoading, 
+        data } = TMDB.useTvdetailQuery(tvID);
     const TV = data!;
-    // const TC = TCast!;
 
     if (error) {
         if ("status" in error) {
@@ -36,6 +35,7 @@ export const TVDet = () => {
                             alt={TV.original_name}
                             src={`${IMG}/${TV.backdrop_path}`}
                         />
+                        <p>{TV.overview}</p>
                         <h3>Last air date: {TV.last_air_date}</h3>
                         <button>
                             <a href={TV.homepage} target="_blank">
@@ -50,12 +50,28 @@ export const TVDet = () => {
                                 key={actor.id}
                                 className={styles.tv__actor}
                             >
-                                <h4>{actor.name}</h4>
-                                <h5>{actor.character}</h5>
+                                <h4>{actor.character}</h4>
                                 <img
                                     alt={actor.name} 
                                     src={`${IMG}/${actor.profile_path}`} 
                                 />
+                                <h4>{actor.name}</h4>
+                            </aside>
+                        ))}
+                    </section>
+
+                    <section className={styles.tv__prod}>
+                        {TV.credits.crew.slice(0, 24).map((crew) => (
+                            <aside 
+                                key={crew.id}
+                                className={styles.tv__crew}
+                            >
+                                <h4>{crew.name}</h4>
+                                <img 
+                                    alt={crew.name}
+                                    src={`${IMG}/${crew.profile_path}`} 
+                                />
+                                <h4>{crew.job}</h4>
                             </aside>
                         ))}
                     </section>
@@ -64,5 +80,6 @@ export const TVDet = () => {
         </React.Fragment>
     );
 };
+
 
 
