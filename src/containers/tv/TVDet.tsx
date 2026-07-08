@@ -61,12 +61,15 @@ export const TVDet = () => {
                                         Homepage
                                     </a>
                                 </button>
-                                <button onClick={handleShow}>Trailer</button>
+                                <button 
+                                    onClick={handleShow}
+                                    >Trailer
+                                </button>
                             </div>
                             <TVideo show={show} closeTV={handleTVideo} />
                         </aside>
                     </section>
-
+                    
                     <section className={styles.tv__credits}>
                         {TV.credits?.cast.slice(0, 12).map((actor) => (
                             <aside
@@ -79,22 +82,6 @@ export const TVDet = () => {
                                     src={`${IMG}/${actor.profile_path}`} 
                                 />
                                 <h4>{actor.name}</h4>
-                            </aside>
-                        ))}
-                    </section>
-
-                    <section className={styles.tv__prod}>
-                        {TV.credits.crew.slice(0, 24).map((crew) => (
-                            <aside 
-                                key={crew.id}
-                                className={styles.tv__crew}
-                            >
-                                <h4>{crew.name}</h4>
-                                <img 
-                                    alt={crew.name}
-                                    src={`${IMG}/${crew.profile_path}`} 
-                                />
-                                <h4>{crew.job}</h4>
                             </aside>
                         ))}
                     </section>

@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import styles from "./TVideo.module.css";
 import { useParams } from "react-router";
@@ -14,7 +13,7 @@ type TM = {
 export const TVideo = ({ show, closeTV }: TM) => {
     const { id } = useParams();
     const vidID = id !== undefined ? Number(id) : 0;
-    const { error, isLoading, 
+    const { error, isLoading,
         data } = TMDB.useTvtrailQuery(vidID);
 
     if (!show) return null;
@@ -30,28 +29,49 @@ export const TVideo = ({ show, closeTV }: TM) => {
         }
     };
 
+    // Prefer an official YouTube "Trailer", otherwise fall
+    // back to the first YouTube video returned by TMDB.
+    const videos = data?.results.filter(
+        (video) => video.site === "YouTube"
+    ) ?? [];
+    const trailer = videos.find(
+        (video) => video.type === "Trailer" && video.official
+    ) ?? videos.find(
+        (video) => video.type === "Trailer"
+    ) ?? videos[0];
+
     return ReactDOM.createPortal(
-        <React.Fragment>
-            {data && data?.results.map((video) => (
-                <section className={styles.tv__modal}>
-                    <aside 
-                        className={styles.tv__overlay} 
-                        onClick={closeTV} 
+        <section className={styles.tv__modal}>
+            <aside
+                className={styles.tv__overlay}
+                onClick={closeTV}
+            />
+            <aside className={styles.tv__video}>
+                <button
+                    className={styles.tv__close}
+                    onClick={closeTV}
+                >
+                    Close
+                </button>
+                {isLoading ? (
+                    <Spinner />
+                ) : trailer ? (
+                    <iframe
+                        allowFullScreen
+                        className={styles.tv__frame}
+                        src={`${YT}/${trailer.key}`}
+                        title={trailer.name}
+                        allow={"accelerometer; autoplay; " +
+                            "clipboard-write; encrypted-media; " +
+                            "gyroscope; picture-in-picture"}
                     />
-                    <aside 
-                        className={styles.tv__video}
-                    >
-                        <a 
-                            href={`${YT}/${video.key}`}
-                            target="_blank"
-                        >
-                            <button>Trailer: {video.name}</button>
-                        </a>
-                        <button onClick={closeTV}>Close</button>
-                    </aside>
-                </section>
-            ))}
-        </React.Fragment>,
+                ) : (
+                    <p className={styles.tv__empty}>
+                        No trailer available.
+                    </p>
+                )}
+            </aside>
+        </section>,
         document.getElementById("modal") as HTMLElement
     )
 };
