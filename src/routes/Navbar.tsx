@@ -56,15 +56,6 @@ export const Navbar = () => {
                     }>
                         <li className={styles.nav__item}>
                             <Link
-                                to={"/"}
-                                className={styles.nav__links}
-                                onClick={closeMenu}
-                            >
-                                Home
-                            </Link>
-                        </li>
-                        <li className={styles.nav__item}>
-                            <Link
                                 to={"/tv"}
                                 className={styles.nav__links}
                                 onClick={closeMenu}
@@ -88,6 +79,15 @@ export const Navbar = () => {
                                 onClick={closeMenu}
                             >
                                 Actors
+                            </Link>
+                        </li>
+                        <li className={styles.nav__item}>
+                            <Link
+                                to={"/fav"}
+                                className={styles.nav__links}
+                                onClick={closeMenu}
+                            >
+                                Favorites
                             </Link>
                         </li>
                     </menu>

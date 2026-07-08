@@ -112,6 +112,30 @@ export interface ITVTrailer {
     }]
 };
 
+export interface IPeople {
+    adult: boolean,
+    id: number,
+    name: string,
+    original_name: string,
+    media_type: string,
+    popularity: number,
+    gender: number,
+    known_for_department: string,
+    profile_path: string
+};
 
+export interface ITrendPeople {
+    page: number,
+    total_pages: number,
+    total_results: number,
+    results: IPeople[]
+};
+
+export interface IFav {
+    fav: (ITV | IMov | IPeople)[]
+};
+
+
+type FavItem = ITV | IMov | IPeople;
 
 

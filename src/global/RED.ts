@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { TMDB } from "./TMDB";
+import { FavReducer } from "./FavSlice";
 
 export const RED = configureStore({
     reducer: {
+        favorites: FavReducer,
         [TMDB.reducerPath]: TMDB.reducer,
     },
     middleware: (gDM) => gDM().concat(TMDB.middleware),

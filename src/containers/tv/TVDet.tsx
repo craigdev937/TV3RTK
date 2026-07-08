@@ -4,15 +4,26 @@ import { useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
 import { TVideo } from "../video/TVideo";
+import { UAS, UAD } from "../../global/Hooks";
+import { toggle } from "../../global/FavSlice";
 const IMG = "https://image.tmdb.org/t/p/w500";
 
 export const TVDet = () => {
     const [show, setShow] = React.useState(false);
     const { id } = useParams();
     const tvID = id !== undefined ? Number(id) : 0;
-    const { error, isLoading, 
+    const { error, isLoading,
         data } = TMDB.useTvdetailQuery(tvID);
     const TV = data!;
+
+    const dispatch = UAD();
+    const isFav = UAS((state) =>
+        state.favorites.fav.some((item) => item.id === tvID)
+    );
+
+    const handleFav = () => {
+        dispatch(toggle(TV));
+    };
 
     const handleShow = () => {
         setShow((state) => !state);
@@ -61,9 +72,15 @@ export const TVDet = () => {
                                         Homepage
                                     </a>
                                 </button>
-                                <button 
+                                <button
                                     onClick={handleShow}
                                     >Trailer
+                                </button>
+                                <button onClick={handleFav}>
+                                    {isFav ?
+                                        "Remove from Favorites" :
+                                        "Add to Favorites"
+                                    }
                                 </button>
                             </div>
                             <TVideo show={show} closeTV={handleTVideo} />
