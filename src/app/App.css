@@ -24,6 +24,21 @@
     --radius-sm: 8px;
 }
 
+/* LIGHT MODE — overrides the dark defaults above.
+   Toggled by ThemeSlice via [data-theme] on <html>. */
+:root[data-theme="light"] {
+    /* --white: oklch(21% 0.01 285); */
+    --white: oklch(63.653% 0.04176 285.137);
+    --text: oklch(24% 0.012 285.5);
+    --text-muted: oklch(45% 0.03 285.137);
+    --text-dim: oklch(58% 0.033 284.964);
+    --bg: oklch(98.5% 0.003 285);
+    --bg-card: oklch(95.5% 0.006 285);
+    --bg-elevated: oklch(92% 0.01 285);
+    --border: oklch(87% 0.012 284);
+    --black: oklch(100% 0 0);
+}
+
 *, *::before, *::after {
     padding: 0;
     margin: 0;
@@ -39,6 +54,7 @@ body {
     background: var(--bg);
     color: var(--text);
     overflow-x: hidden;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 

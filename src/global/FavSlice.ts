@@ -47,7 +47,8 @@ const FavSlice = createSlice({
                 (item) => item.id === action.payload.id
             );
             state.fav = exists
-                ? state.fav.filter((item) => item.id !== action.payload.id)
+                ? state.fav.filter(
+                    (item) => item.id !== action.payload.id)
                 : [...state.fav, action.payload];
             saveFav(state.fav);
         }
@@ -56,3 +57,7 @@ const FavSlice = createSlice({
 
 export const { add, remove, toggle } = FavSlice.actions;
 export const FavReducer = FavSlice.reducer;
+
+
+
+

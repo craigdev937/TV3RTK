@@ -135,7 +135,13 @@ export interface IFav {
     fav: (ITV | IMov | IPeople)[]
 };
 
+export type Theme = "light" | "dark";
 
-type FavItem = ITV | IMov | IPeople;
+export interface ITheme {
+    mode: Theme
+};
+
+
+
 
 

@@ -1,10 +1,15 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import { Link, Outlet } from "react-router";
+import { Sun, Moon } from "lucide-react";
+import { UAS, UAD } from "../global/Hooks";
+import { toggleTheme } from "../global/ThemeSlice";
 import LOGO from "@public/favicon.ico";
 
 export const Navbar = () => {
     const [open, setOpen] = React.useState(false);
+    const dispatch = UAD();
+    const mode = UAS((state) => state.theme.mode);
 
     const handleClick = () => {
         setOpen(!open);
@@ -29,6 +34,29 @@ export const Navbar = () => {
                             className={styles.nav__img} 
                         />
                     </Link>
+
+                    {/* THEME TOGGLE */}
+                    <button
+                        className={styles.nav__theme}
+                        type="button"
+                        aria-label={
+                            mode === "dark"
+                                ? "Switch to light mode"
+                                : "Switch to dark mode"
+                        }
+                        title={
+                            mode === "dark"
+                                ? "Switch to light mode"
+                                : "Switch to dark mode"
+                        }
+                        onClick={() => dispatch(toggleTheme())}
+                    >
+                        {mode === "dark" ? (
+                            <Sun className={styles.nav__icon} />
+                        ) : (
+                            <Moon className={styles.nav__icon} />
+                        )}
+                    </button>
 
                     {/* NAV MENU BUTTON */}
                     <button
