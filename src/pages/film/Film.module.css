@@ -1,6 +1,31 @@
-.title {
-    background-color: var(--bg-elevated);
-    color: var(--command);
+.film__grid {
+    margin-top: 1rem;
+    width: 90%;
+    margin-inline: auto;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+}
+
+.film {
+    padding: .7rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    place-items: center;
+}
+
+.film:hover {
+    scale: 1.05;
+}
+
+.film img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
 }
 
 

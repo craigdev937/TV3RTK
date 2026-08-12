@@ -1,0 +1,63 @@
+.film__card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 1.5rem;
+}
+
+.film__poster {
+    flex: 1 1 300px;
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+.film__poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.film__credits {
+    margin-top: 1rem;
+    margin-inline: auto;
+    max-width: 95%;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(210px, 1fr)
+    );
+}
+
+.film__actor {
+    padding: .6rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    place-items: center;
+}
+
+.film__actor h4 {
+    padding: 10px 0 10px 0;
+    color: var(--bg);
+}
+
+.film__actor img {
+    display: block;
+    width: 100%;
+    aspect-ratio: .7 / 1;
+    object-fit: scale-down;
+}
+
+
+
+
+
+
+
+
+

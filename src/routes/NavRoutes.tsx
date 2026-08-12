@@ -7,6 +7,7 @@ import { Home } from "../pages/home/Home";
 import { TV } from "../pages/tv/TV";
 import { TVDet } from "../containers/tv/TVDet";
 import { Film } from "../pages/film/Film";
+import { FilmDet } from "../containers/film/FilmDet";
 import { Actors } from "../pages/actors/Actors";
 import { Favorites } from "../pages/fav/Favorites";
 
@@ -31,6 +32,10 @@ const RouteList = createBrowserRouter([
             {
                 path: "/film",
                 element: <Film />
+            },
+            {
+                path: "/film/:id",
+                element: <FilmDet />
             },
             {
                 path: "/actors",

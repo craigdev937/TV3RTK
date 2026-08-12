@@ -27,7 +27,6 @@
 /* LIGHT MODE — overrides the dark defaults above.
    Toggled by ThemeSlice via [data-theme] on <html>. */
 :root[data-theme="light"] {
-    /* --white: oklch(21% 0.01 285); */
     --white: oklch(63.653% 0.04176 285.137);
     --text: oklch(24% 0.012 285.5);
     --text-muted: oklch(45% 0.03 285.137);

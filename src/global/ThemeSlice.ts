@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { ITheme, Theme } from "../models/Interfaces";
+import type { ITheme, TTheme } from "../models/Interfaces";
 
-const loadTheme = (): Theme => {
+const loadTheme = (): TTheme => {
     try {
         const stored = localStorage.getItem("theme");
         if (stored === "light" || stored === "dark") {
@@ -20,7 +20,7 @@ const loadTheme = (): Theme => {
 
 // Persist the choice and reflect it on the <html> element so the
 // CSS variables in App.css can switch via [data-theme="..."].
-const applyTheme = (mode: Theme) => {
+const applyTheme = (mode: TTheme) => {
     localStorage.setItem("theme", mode);
     document.documentElement.setAttribute("data-theme", mode);
 };
@@ -42,7 +42,7 @@ const ThemeSlice = createSlice({
             applyTheme(state.mode);
         },
         // Set an explicit theme
-        setTheme: (state, action: PayloadAction<Theme>) => {
+        setTheme: (state, action: PayloadAction<TTheme>) => {
             state.mode = action.payload;
             applyTheme(state.mode);
         }

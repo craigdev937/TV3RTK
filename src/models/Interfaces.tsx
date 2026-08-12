@@ -10,20 +10,35 @@ export interface MC {
 export interface IMov {
     adult: boolean,
     backdrop_path: string,
-    id: number,
-    title: string,
-    original_title: string,
-    overview: string,
-    poster_path: string,
-    media_type: string,
-    original_language: string,
+    budget: number,
     genre_ids: number[],
+    homepage: string,
+    id: number,
+    overview: string,
     popularity: number,
+    poster_path: string,
     release_date: string,
-    softcore: boolean,
-    video: boolean,
+    revenue: number,
+    runtime: number,
+    title: string,
     vote_average: number,
-    vote_count: number
+    vote_count: number,
+    credits: {
+        cast: [{
+            adult: boolean,
+            gender: number,
+            id: number,
+            known_for_department: string,
+            name: string,
+            original_name: string,
+            popularity: number,
+            profile_path: string,
+            cast_id: number,
+            character: string,
+            credit_id: string,
+            order: number
+        }]
+    }
 };
 
 export interface ITrendMov {
@@ -65,19 +80,6 @@ export interface ITV {
             character: string,
             credit_id: string,
             order: number
-        }],
-        crew: [{
-            adult: boolean,
-            gender: number,
-            id: number,
-            known_for_department: string,
-            name: string,
-            original_name: string,
-            popularity: number,
-            profile_path: string,
-            credit_id: string,
-            department: string,
-            job: string
         }]
     }
 };
@@ -97,6 +99,22 @@ export interface ITrendAll {
 };
 
 export interface ITVTrailer {
+    id: number,
+    results: [{
+        iso_639_1: string,
+        iso_3166_1: string,
+        name: string,
+        key: string,
+        site: string,
+        size: number,
+        type: string,
+        official: boolean,
+        id: string,
+        published_at: string
+    }]
+};
+
+export interface IMovTrailer {
     id: number,
     results: [{
         iso_639_1: string,
@@ -135,10 +153,10 @@ export interface IFav {
     fav: (ITV | IMov | IPeople)[]
 };
 
-export type Theme = "light" | "dark";
+export type TTheme = "light" | "dark";
 
 export interface ITheme {
-    mode: Theme
+    mode: TTheme
 };
 
 
