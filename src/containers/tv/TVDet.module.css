@@ -50,6 +50,12 @@
     background: var(--gradient);
     border-radius: var(--radius-sm);
     font-size: 22px;
+    font-weight: 600;
+}
+
+.tv__actions button a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .tv__credits {

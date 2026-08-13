@@ -22,6 +22,42 @@
     object-fit: cover;
 }
 
+.film__info {
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.film__info h1 {
+    margin: 0;
+    color: var(--turquoise);
+}
+
+.film__rating {
+    font-weight: bold;
+}
+
+.film__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.film__actions button {
+    padding: 20px;
+    background: var(--gradient);
+    border-radius: var(--radius-sm);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.film__actions button a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .film__credits {
     margin-top: 1rem;
     margin-inline: auto;

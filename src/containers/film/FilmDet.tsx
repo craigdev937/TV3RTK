@@ -3,14 +3,35 @@ import classes from "./FilmDet.module.css";
 import { useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
+import { FilmVideo } from "../video/FilmVideo";
+import { UAS, UAD } from "../../global/Hooks";
+import { toggle } from "../../global/FavSlice";
 const IMG = "https://image.tmdb.org/t/p/w500";
 
 export const FilmDet = () => {
+    const [show, setShow] = React.useState(false);
     const { id } = useParams();
     const filmID = id !== undefined ? Number(id) : 0;
     const { error, isLoading, 
         data } = TMDB.useMovdetailQuery(filmID);
     const FILM = data!;
+
+    const dispatch = UAD();
+    const isFav = UAS((state) => 
+        state.favorites.fav.some(
+            (item) => item.id === filmID));
+    
+    const handleFav = () => {
+        dispatch(toggle(FILM));
+    };
+
+    const handleShow = () => {
+        setShow((state) => !state);
+    };
+
+    const handleFilmVideo = () => {
+        setShow(false);
+    };
 
     if (error) {
         if ("status" in error) {
@@ -30,17 +51,45 @@ export const FilmDet = () => {
             ) : (
                 <main>
                     <section className={classes.film__card}>
-                        <h1>{FILM.title}</h1>
-                        <img
-                            alt={FILM.title} 
-                            src={`${IMG}/${FILM.backdrop_path}`}  
-                        />
-                        <h3>Release date: {FILM.release_date}</h3>
-                        <button>
-                            <a href={FILM.homepage} target="_blank">
-                                Homepage
-                            </a>
-                        </button>
+                        <aside className={classes.film__poster}>
+                            <img
+                                alt={FILM.title} 
+                                src={`${IMG}/${FILM.poster_path}`}  
+                            />
+                        </aside>
+
+                        <aside className={classes.film__info}>
+                            <h1>{FILM.title}</h1>
+                            <p className={classes.film__rating}>
+                                Rating: {FILM.vote_average}
+                            </p>
+                            <h3>Overview</h3>
+                            <p>{FILM.overview}</p>
+                            <h3>Release date: {FILM.release_date}</h3>
+
+                            <div className={classes.film__actions}>
+                                <button>
+                                    <a 
+                                        href={FILM.homepage} 
+                                        target="_blank"
+                                    >
+                                        Homepage
+                                    </a>
+                                </button>
+
+                                <button onClick={handleShow}>
+                                    Trailer
+                                </button>
+
+                                <button onClick={handleFav}>
+                                    {isFav ? 
+                                        "Remove from Favorites" : 
+                                        "Add to Favorites"
+                                    }
+                                </button>
+                            </div>
+                            <FilmVideo show={show} closeFILM={handleFilmVideo} />
+                        </aside>
                     </section>
 
                     <section className={classes.film__credits}>

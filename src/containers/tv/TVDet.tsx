@@ -66,7 +66,7 @@ export const TVDet = () => {
                             <h3>Overview</h3>
                             <p>{TV.overview}</p>
                             <h3>Last air date: {TV.last_air_date}</h3>
-                            <div className={styles.tv__actions}>
+                            <section className={styles.tv__actions}>
                                 <button>
                                     <a href={TV.homepage} target="_blank">
                                         Homepage
@@ -82,7 +82,7 @@ export const TVDet = () => {
                                         "Add to Favorites"
                                     }
                                 </button>
-                            </div>
+                            </section>
                             <TVideo show={show} closeTV={handleTVideo} />
                         </aside>
                     </section>
