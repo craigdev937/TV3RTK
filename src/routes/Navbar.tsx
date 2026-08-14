@@ -102,7 +102,7 @@ export const Navbar = () => {
                         </li>
                         <li className={styles.nav__item}>
                             <Link
-                                to={"/actors"}
+                                to={"/actor"}
                                 className={styles.nav__links}
                                 onClick={closeMenu}
                             >

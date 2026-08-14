@@ -1,7 +1,8 @@
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { IMulti, ITV, ITVTrailer, IMov, 
-    ITrendMov, IMovTrailer } from "../models/Interfaces";
+    ITrendMov, IMovTrailer, IActor,
+    IPeople, ITrendPeople } from "../models/Interfaces";
 const API = import.meta.env.PUBLIC_KEY;
 const URL = "https://api.themoviedb.org/3";
 
@@ -71,6 +72,25 @@ export const TMDB = createApi({
                 params: {"api_key": `${API}`}
             }),
             providesTags: ["Films"]
+        }),
+        trendpeople: builder.query<ITrendPeople, string>({
+            query: (tW) => ({
+                url: `/trending/person/${tW}`,
+                method: "GET",
+                params: {"api_key": `${API}`}
+            }),
+            providesTags: ["Actors"]
+        }),
+        people: builder.query<IActor, number>({
+            query: (id) => ({
+                url: `person${id}`,
+                method: "GET",
+                params: {
+                    "api_key": `${API}`,
+                    "append_to_response": "credits"
+                }
+            }),
+            providesTags: ["Actors"]
         }),
     })
 });

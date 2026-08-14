@@ -9,6 +9,7 @@ import { TVDet } from "../containers/tv/TVDet";
 import { Film } from "../pages/film/Film";
 import { FilmDet } from "../containers/film/FilmDet";
 import { Actors } from "../pages/actors/Actors";
+import { ActorDet } from "../containers/act/ActorDet";
 import { Favorites } from "../pages/fav/Favorites";
 
 const RouteList = createBrowserRouter([
@@ -38,8 +39,12 @@ const RouteList = createBrowserRouter([
                 element: <FilmDet />
             },
             {
-                path: "/actors",
+                path: "/actor",
                 element: <Actors />
+            },
+            {
+                path: "/actor/:id",
+                element: <ActorDet />
             },
             {
                 path: "/fav",

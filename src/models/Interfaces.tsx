@@ -130,6 +130,36 @@ export interface IMovTrailer {
     }]
 };
 
+export interface IActor {
+    adult: boolean,
+    also_known_as: string[],
+    biography: string,
+    birthday: string,
+    deathday: string,
+    gender: number,
+    homepage: string,
+    id: number,
+    imdb_id: string,
+    known_for_department: string,
+    name: string,
+    place_of_birth: string,
+    popularity: number,
+    profile_path: string,
+    credits: {
+        cast: [{
+            backdrop_path: string,
+            genre_ids: number[],
+            id: number,
+            title: string,
+            overview: string,
+            popularity: number,
+            poster_path: string,
+            release_date: string,
+            character: string,
+        }]
+    }
+};
+
 export interface IPeople {
     adult: boolean,
     id: number,
