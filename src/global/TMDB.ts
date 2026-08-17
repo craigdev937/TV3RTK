@@ -83,11 +83,11 @@ export const TMDB = createApi({
         }),
         people: builder.query<IActor, number>({
             query: (id) => ({
-                url: `person${id}`,
+                url: `person/${id}`,
                 method: "GET",
                 params: {
                     "api_key": `${API}`,
-                    "append_to_response": "credits"
+                    "append_to_response": "combined_credits"
                 }
             }),
             providesTags: ["Actors"]

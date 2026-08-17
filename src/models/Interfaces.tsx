@@ -130,6 +130,22 @@ export interface IMovTrailer {
     }]
 };
 
+export interface IActorCredit {
+    backdrop_path: string,
+    genre_ids: number[],
+    id: number,
+    title?: string,
+    name?: string,
+    overview: string,
+    popularity: number,
+    poster_path: string,
+    release_date?: string,
+    first_air_date?: string,
+    character: string,
+    media_type: "movie" | "tv",
+    credit_id: string
+};
+
 export interface IActor {
     adult: boolean,
     also_known_as: string[],
@@ -145,18 +161,8 @@ export interface IActor {
     place_of_birth: string,
     popularity: number,
     profile_path: string,
-    credits: {
-        cast: [{
-            backdrop_path: string,
-            genre_ids: number[],
-            id: number,
-            title: string,
-            overview: string,
-            popularity: number,
-            poster_path: string,
-            release_date: string,
-            character: string,
-        }]
+    combined_credits: {
+        cast: IActorCredit[]
     }
 };
 

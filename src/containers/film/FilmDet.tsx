@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./FilmDet.module.css";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
 import { FilmVideo } from "../video/FilmVideo";
@@ -67,10 +67,10 @@ export const FilmDet = () => {
                             <p>{FILM.overview}</p>
                             <h3>Release date: {FILM.release_date}</h3>
 
-                            <div className={classes.film__actions}>
+                            <section className={classes.film__actions}>
                                 <button>
-                                    <a 
-                                        href={FILM.homepage} 
+                                    <a
+                                        href={FILM.homepage}
                                         target="_blank"
                                     >
                                         Homepage
@@ -82,29 +82,30 @@ export const FilmDet = () => {
                                 </button>
 
                                 <button onClick={handleFav}>
-                                    {isFav ? 
-                                        "Remove from Favorites" : 
+                                    {isFav ?
+                                        "Remove from Favorites" :
                                         "Add to Favorites"
                                     }
                                 </button>
-                            </div>
+                            </section>
                             <FilmVideo show={show} closeFILM={handleFilmVideo} />
                         </aside>
                     </section>
 
                     <section className={classes.film__credits}>
                         {FILM.credits.cast.slice(0, 12).map((actor) => (
-                            <aside
+                            <Link
                                 key={actor.id}
+                                to={`/actor/${actor.id}`}
                                 className={classes.film__actor}
                             >
-                                <h1>{actor.character}</h1>
-                                <img 
-                                    alt={actor.name} 
-                                    src={`${IMG}/${actor.profile_path}`} 
+                                <h4>{actor.character}</h4>
+                                <img
+                                    alt={actor.name}
+                                    src={`${IMG}/${actor.profile_path}`}
                                 />
                                 <h4>{actor.name}</h4>
-                            </aside>
+                            </Link>
                         ))}
                     </section>
                 </main>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./TVDet.module.css";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { TMDB } from "../../global/TMDB";
 import { Spinner } from "../../components/spin/Spinner";
 import { TVideo } from "../video/TVideo";
@@ -89,17 +89,18 @@ export const TVDet = () => {
                     
                     <section className={styles.tv__credits}>
                         {TV.credits?.cast.slice(0, 12).map((actor) => (
-                            <aside
+                            <Link
                                 key={actor.id}
+                                to={`/actor/${actor.id}`}
                                 className={styles.tv__actor}
                             >
                                 <h4>{actor.character}</h4>
                                 <img
-                                    alt={actor.name} 
-                                    src={`${IMG}/${actor.profile_path}`} 
+                                    alt={actor.name}
+                                    src={`${IMG}/${actor.profile_path}`}
                                 />
                                 <h4>{actor.name}</h4>
-                            </aside>
+                            </Link>
                         ))}
                     </section>
                 </main>

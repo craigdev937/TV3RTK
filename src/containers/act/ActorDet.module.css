@@ -1,0 +1,79 @@
+.actor__card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 1.5rem;
+}
+
+.actor__poster {
+    flex: 1 1 300px;
+    max-width: 400px;
+    margin-inline: auto;
+}
+
+.actor__poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.actor__info {
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.actor__info h1 {
+    margin: 0;
+    color: var(--turquoise);
+}
+
+.actor__rating {
+    font-weight: bold;
+}
+
+.actor__credits {
+    margin-top: 1rem;
+    margin-inline: auto;
+    max-width: 95%;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(210px, 1fr)
+    );
+}
+
+.actor__credit {
+    display: block;
+    padding: .6rem;
+    background-color: var(--white);
+    border-radius: 1rem;
+    place-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.actor__credit img {
+    display: block;
+    width: 100%;
+    aspect-ratio: .7 / 1;
+    object-fit: scale-down;
+}
+
+.actor__credit h4 {
+    padding: 10px 0 4px 0;
+    color: var(--bg);
+}
+
+.actor__credit p {
+    padding: 0 0 10px 0;
+    color: var(--bg);
+    font-style: italic;
+}

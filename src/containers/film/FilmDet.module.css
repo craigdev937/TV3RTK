@@ -71,10 +71,13 @@
 }
 
 .film__actor {
+    display: block;
     padding: .6rem;
     background-color: var(--white);
     border-radius: 1rem;
     place-items: center;
+    text-decoration: none;
+    color: inherit;
 }
 
 .film__actor h4 {
