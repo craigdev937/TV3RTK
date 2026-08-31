@@ -2,7 +2,7 @@ import styles from "./MediaCard.module.css";
 import { Link } from "react-router";
 import { Star, Calendar } from "lucide-react";
 const IMG = "https://image.tmdb.org/t/p/w500";
-import { MC } from "../../models/Interfaces";
+import type { MC } from "../../models/Interfaces";
 
 export const MediaCard = ({ 
     id, title, posterPath, type, 

@@ -1,6 +1,6 @@
 import { createApi, 
     fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IMulti, ITV, ITVTrailer, IMov, 
+import type { IMulti, ITV, ITVTrailer, IMov, 
     ITrendMov, IMovTrailer, IActor,
     IPeople, ITrendPeople } from "../models/Interfaces";
 const API = import.meta.env.PUBLIC_KEY;
