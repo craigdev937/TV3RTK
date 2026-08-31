@@ -14,7 +14,7 @@ export const Favorites = () => {
             <main>
                 <h1 className={styles.title}>Favorites Page</h1>
                 <p className={styles.empty}>
-                    No favorites yet. Add a show to see it here.
+                    No favorites yet. Add a show or film to see it here.
                 </p>
             </main>
         );
@@ -43,6 +43,7 @@ export const Favorites = () => {
                                 </Link>
                                 <h4>{name}</h4>
                                 <button
+                                    className={styles.fav__button}
                                     onClick={() => dispatch(remove(item.id))}
                                 >
                                     Remove
@@ -55,3 +56,5 @@ export const Favorites = () => {
         </React.Fragment>
     );
 };
+
+

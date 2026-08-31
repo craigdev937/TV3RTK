@@ -35,3 +35,17 @@
     aspect-ratio: 2 / 3;
     object-fit: cover;
 }
+
+.fav h4 {
+    color: var(--text-dim);
+}
+
+.fav__button {
+    padding: .7rem;
+    border-radius: 6px;
+    font-weight: 600;
+    background-color: var(--light-red);
+}
+
+
+

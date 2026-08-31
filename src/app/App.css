@@ -1,6 +1,8 @@
 :root {
     --white: oklch(100% 0.00011 271.152);
-    --text: oklch(92.209% 0.01492 286.007);    
+    --text: oklch(92.209% 0.01492 286.007);
+    --red: oklch(62.793% 0.25768 29.223);
+    --light-red: rgb(243, 75, 75);
     --pink: oklch(65.59% 0.21181 354.287);
     --gold: oklch(76.858% 0.1646 70.075);
     --green: oklch(72.276% 0.19199 149.6);
@@ -28,8 +30,8 @@
 :root[data-theme="light"] {
     --white: oklch(63.653% 0.04176 285.137);
     --text: oklch(24% 0.012 285.5);
-    --text-muted: oklch(45% 0.03 285.137);
-    --text-dim: oklch(58% 0.033 284.964);
+    --text-muted: oklch(22.473% 0.02712 284.003);
+    --text-dim: oklch(18.614% 0.01624 284.705);
     --bg: oklch(98.5% 0.003 285);
     --bg-card: oklch(95.5% 0.006 285);
     --bg-elevated: oklch(92% 0.01 285);
