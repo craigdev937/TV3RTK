@@ -4,7 +4,7 @@
         "strict": true,
         "jsx": "react-jsx",
         "noEmit": true,
-        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
         "forceConsistentCasingInFileNames": true,
         "useDefineForClassFields": true,
         "rootDir": "./src",
@@ -12,11 +12,12 @@
         "isolatedModules": true,
         "resolveJsonModule": true,
         "module": "ESNext",
-        "target": "ES2023",
-        "lib": ["DOM", "DOM.Iterable", "ES2023"],
-        "paths": {"@public/*": ["./public/*"]}
+        "target": "ESNext",
+        "lib": ["DOM", "DOM.Iterable", "ES2025"],
+        "paths": {"@public/*": ["./public/*"]},
+        "types": ["@rsbuild/core/types"]
     },
-    "exclude": ["node_modules", "dist"],
+    "exclude": ["node_modules", "dist", "__tests__"],
     "include": ["src"]
 }
 

@@ -9,7 +9,15 @@ export default defineConfig({
     },
     html: {
         template: "./public/index.html"
+    },
+    output: {
+        assetPrefix: "/TV3RTK/",
     }
+    // This ensures generated JS, CSS, and 
+    // imported assets load from /TV3RTK/ 
+    // rather than the domain root. 
+    // Rsbuild specifically recommends 
+    // output.assetPrefix for GitHub Pages project sites.
 });
 
 

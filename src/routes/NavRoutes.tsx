@@ -1,5 +1,5 @@
 import React from "react";
-import { createBrowserRouter, 
+import { createHashRouter, 
     RouterProvider } from "react-router"; 
 import { NotFound } from "../components/NotFound";
 import { Navbar } from "./Navbar";
@@ -12,7 +12,7 @@ import { Actors } from "../pages/actors/Actors";
 import { ActorDet } from "../containers/act/ActorDet";
 import { Favorites } from "../pages/fav/Favorites";
 
-const RouteList = createBrowserRouter([
+const RouteList = createHashRouter([
     {
         path: "/",
         element: <Navbar />,
